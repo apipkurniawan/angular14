@@ -1,14 +1,19 @@
-<form>
-  <div>
-    <h1>Form Reusable</h1>
-    <div>
-      <label for="">Display Name</label>
-      <input />
-    </div>
-    <app-address></app-address>
-    <div>
-      <button>submit</button>
-    </div>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <h1>Form Reusable</h1>
+  <div style="margin-bottom: 10px">
+    <label for="" style="margin-right: 5px">Display Name</label>
+    <input type="text" formControlName="displayName" />
+  </div>
+  <app-address
+    controlKey="deliveryAddress"
+    label="Delivery Address"
+  ></app-address>
+  <app-address
+    controlKey="billingAddress"
+    label="Billing Address"
+  ></app-address>
+  <div style="margin-top: 10px">
+    <button>submit</button>
   </div>
 </form>
 <router-outlet></router-outlet>
