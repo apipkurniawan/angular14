@@ -12,12 +12,15 @@ export class WidgetDataService {
   load() {
     return this.http
       .get<Task[]>(
-        `https://jsonplaceholder.typicode.com/todos?_start=0&_limit=3`
+        `https://jsonplaceholder.typicode.com/todosa?_start=0&_limit=3`
       )
       .pipe(
         catchError(() => {
           console.info('Error handled by Widget Service...');
-          return throwError(() => new Error(`Couldn't load data...`));
+          return throwError(() => {
+            console.info('Error rethrow by Widget Service');
+            return new Error(`Couldn't load data...`);
+          });
         })
       );
   }
