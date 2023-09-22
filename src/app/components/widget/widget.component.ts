@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
-import { Observable, catchError, of, tap } from 'rxjs';
+import { Observable, catchError, of, tap, map } from 'rxjs';
 import { WidgetDataService } from './widget-data.service';
 import { WidgetErrorComponent } from './widget-error/widget-error.component';
 import { Task } from 'src/app/models/task.model';
@@ -29,6 +29,10 @@ export class WidgetComponent implements OnInit {
 
   ngOnInit(): void {
     this.tasks$ = this.widgetData.load().pipe(
+      map((data) => {
+        console.log('Data transformation...');
+        return data.map((data) => data);
+      }),
       tap({
         error: (error) => {
           this.error = error;

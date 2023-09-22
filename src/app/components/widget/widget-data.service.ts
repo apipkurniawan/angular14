@@ -12,7 +12,7 @@ export class WidgetDataService {
   load() {
     return this.http
       .get<Task[]>(
-        `https://jsonplaceholder.typicode.com/todosa?_start=0&_limit=3`
+        `https://jsonplaceholder.typicode.com/todos?_start=0&_limit=3`
       )
       .pipe(
         catchError(() => {
