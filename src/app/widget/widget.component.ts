@@ -36,9 +36,9 @@ import { MatDividerModule } from '@angular/material/divider';
   ],
 })
 export class WidgetComponent extends WidgetBase {
-  constructor() {
-    super();
-  }
+  // constructor() {
+  //   super();
+  // }
 
   // liskov-substitution-principle : memanggil function menggunakan inheritance class
   exportJsonHandler(): void {
