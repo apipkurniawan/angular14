@@ -3,7 +3,6 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { environment } from './environments/environment';
 import { AppComponent } from './app/app.component';
@@ -18,8 +17,7 @@ bootstrapApplication(AppComponent, {
     importProvidersFrom(
       RouterModule.forRoot(routes),
       HttpClientModule,
-      BrowserAnimationsModule,
-      MatSnackBarModule
+      BrowserAnimationsModule
     ),
   ],
 }).catch((err) => console.error(err));
