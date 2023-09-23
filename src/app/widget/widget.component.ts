@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ContentChild } from '@angular/core';
 import { WidgetBase } from './widget-base';
 import { MatDividerModule } from '@angular/material/divider';
+import { RELOADABLE_CONTENT } from './widget-content.token';
+import { Reloadable } from './widget-content';
 
 @Component({
   selector: 'app-widget',
@@ -36,9 +38,18 @@ import { MatDividerModule } from '@angular/material/divider';
   ],
 })
 export class WidgetComponent extends WidgetBase {
+  @ContentChild(RELOADABLE_CONTENT)
+  content?: Reloadable;
+
   // constructor() {
   //   super();
   // }
+
+  ngAfterContentInit(): void {
+    if (this.content) {
+      this.content.reload();
+    }
+  }
 
   // liskov-substitution-principle : memanggil function menggunakan inheritance class
   exportJsonHandler(): void {
