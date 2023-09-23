@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
+import { Reloadable, WidgetContent } from './widget-content';
 
 @Component({
   selector: 'app-wether-content',
@@ -14,4 +15,12 @@ import { MatIconModule } from '@angular/material/icon';
   `,
   styleUrls: ['./widget-content.scss'],
 })
-export class WetherContentComponent {}
+export class WetherContentComponent implements WidgetContent, Reloadable {
+  // interface segregation principle : mengimplementasi sebuah interface
+  id: string = '';
+  loading: boolean = false;
+
+  reload(): void {
+    throw new Error('Method not implemented.');
+  }
+}

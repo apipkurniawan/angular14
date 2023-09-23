@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
+import { WidgetContent } from './widget-content';
 
 @Component({
   selector: 'app-velocity-content',
@@ -15,4 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
   `,
   styleUrls: ['./widget-content.scss'],
 })
-export class VelocityContentComponent {}
+export class VelocityContentComponent implements WidgetContent {
+  // interface segregation principle : mengimplementasi sebuah interface
+  id: string = '';
+}
